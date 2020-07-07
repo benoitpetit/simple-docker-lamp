@@ -1,3 +1,4 @@
+ 
 version: '3.7'
 
 services:
@@ -6,7 +7,10 @@ services:
         ports:
             - 80:80
         volumes:
-            - "./DocumentRoot:/var/www/html"
+            - "./public:/var/www/html"
+            - "./apache2/conf/sites-available:/etc/apache2/sites-available"
+            - "./apache2/conf/sites-enabled:/etc/apache2/sites-enabled"
+            - "./apache2/log/:/var/log/apache2/"
 
     mariadb:
         image: mariadb:latest
